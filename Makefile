@@ -1,7 +1,7 @@
 # Makefile for Gatsby-investigation
 
 # Define variables
-DOCKER_COMPOSE = docker-compose
+DOCKER_COMPOSE = docker compose
 DOCKER_IMAGE = gatsby-investigation
 
 # Build the Docker image
