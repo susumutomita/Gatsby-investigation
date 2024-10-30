@@ -30,6 +30,12 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
+      - name: Install
+        run: |
+          npm install -g gatsby-cli
+          npm install --legacy-peer-deps
+          npm rebuild @parcel/watcher
+
       - name: Install dependencies
         run: make install
 
@@ -48,4 +54,4 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 
+        uses: actions/deploy-pages@v4
