@@ -16,6 +16,14 @@ build:
 	$(ECHO) "Build completed successfully."
 
 # Build the Docker image
+.PHONY: build-gatsby
+build-gatsby:
+	$(ECHO) "Building in Docker container..."
+	$(DC_RUN) npm run build
+	$(ECHO) "Build completed successfully."
+
+
+# Build the Docker image
 .PHONY: docker-build
 docker-build:
 	$(ECHO) "Building Docker image..."

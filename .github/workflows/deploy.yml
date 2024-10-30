@@ -40,7 +40,7 @@ jobs:
         run: make install
 
       - name: Build Gatsby
-        run: make build
+        run: make build-gatsby
         env:
           PREFIX_PATHS: true
 

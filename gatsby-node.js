@@ -25,4 +25,20 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-} 
+}
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter
+    }
+    type Frontmatter {
+      title: String
+      date: Date @dateformat
+      slug: String
+      # 他の必要なフィールドを追加
+    }
+  `
+  createTypes(typeDefs)
+}

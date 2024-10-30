@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: "/your-repo-name",
+  pathPrefix: "/Gatsby-investigation",
   siteMetadata: {
     title: "Markdown Docs",
     description: "Documentation site built with Gatsby",
