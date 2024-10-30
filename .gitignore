@@ -162,3 +162,7 @@ cython_debug/
 #.idea/
 
 node_modules
+
+# Gatsby
+public
+.cache
