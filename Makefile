@@ -43,6 +43,10 @@ docker-deploy:
 	$(DC_RUN) npm run deploy
 	$(ECHO) "Deployment completed successfully."
 
+.PHONY: connect-container
+connect-container:
+	$(DOCKER_COMPOSE) exec -it gatsby bash
+
 # Clean up
 .PHONY: clean
 clean:
