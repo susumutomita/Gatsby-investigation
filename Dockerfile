@@ -4,6 +4,13 @@ FROM node:20-slim
 # Set the working directory
 WORKDIR /app
 
+# 必要な依存関係をインストール
+RUN apt-get update && apt-get install -y \
+  python3 \
+  python3-pip \
+  build-essential \
+  && rm -rf /var/lib/apt/lists/*
+
 # Install Gatsby CLI
 RUN npm install -g gatsby-cli
 
