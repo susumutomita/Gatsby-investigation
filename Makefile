@@ -11,6 +11,13 @@ DC_RUN := $(DOCKER_COMPOSE) run --rm $(DOCKER_SERVICE)
 # Build the Docker image
 .PHONY: build
 build:
+	$(ECHO) "Building ..."
+	npm run build
+	$(ECHO) "Build completed successfully."
+
+# Build the Docker image
+.PHONY: docker-build
+docker-build:
 	$(ECHO) "Building Docker image..."
 	$(DOCKER_COMPOSE) build
 	$(ECHO) "Build completed successfully."
@@ -19,19 +26,19 @@ build:
 .PHONY: install
 install:
 	$(ECHO) "Installing dependencies..."
-	$(DC_RUN) npm install
+	npm install
 	$(ECHO) "Installation completed successfully."
 
 # Run the development environment
-.PHONY: up
-up:
+.PHONY: docker-up
+docker-up:
 	$(ECHO) "Starting development environment..."
 	$(DOCKER_COMPOSE) up
 	$(ECHO) "Development environment is up and running."
 
 # Deploy the site to GitHub Pages
-.PHONY: deploy
-deploy:
+.PHONY: docker-deploy
+docker-deploy:
 	$(ECHO) "Deploying the site to GitHub Pages..."
 	$(DC_RUN) npm run deploy
 	$(ECHO) "Deployment completed successfully."
