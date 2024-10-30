@@ -1,17 +1,23 @@
 # Use the official Node.js image as the base image
-FROM node:14
-
-# Install Gatsby CLI globally
-RUN npm install -g gatsby-cli
+FROM node:20-slim
 
 # Set the working directory
 WORKDIR /app
 
-# Copy the project files into the container
+# Install Gatsby CLI
+RUN npm install -g gatsby-cli
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application
 COPY . .
 
-# Install project dependencies
-RUN yarn install
+# Expose port 8000 for development server
+EXPOSE 8000
 
-# Define the command to run the development server
-CMD ["yarn", "develop"]
+# Set host to allow external connections
+ENV GATSBY_HOST=0.0.0.0

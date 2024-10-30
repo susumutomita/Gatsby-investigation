@@ -1,13 +1,13 @@
-import React from "react"
-import { Link } from "gatsby"
-import Layout from "../components/layout"
+import React from 'react'
+import Layout from '../components/layout'
 
-const IndexPage = () => (
-  <Layout>
-    <h1>Welcome to Gatsby-investigation</h1>
-    <p>This is a sample Gatsby site hosting MarkDown documents.</p>
-    <Link to="/blog">Go to Blog</Link>
-  </Layout>
-)
+const IndexPage = () => {
+  return (
+    <Layout>
+      <h1>Welcome to Markdown Docs</h1>
+      <p>This is the home page of your documentation site.</p>
+    </Layout>
+  )
+}
 
 export default IndexPage
