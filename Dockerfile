@@ -6,10 +6,16 @@ WORKDIR /app
 
 # 必要な依存関係をインストール
 RUN apt-get update && apt-get install -y \
-  python3 \
-  python3-pip \
-  build-essential \
-  && rm -rf /var/lib/apt/lists/*
+    python3 \
+    python3-pip \
+    build-essential \
+    procps \
+    git \
+    g++ \
+    make \
+    gcc \
+    libc6-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install Gatsby CLI
 RUN npm install -g gatsby-cli
@@ -17,8 +23,8 @@ RUN npm install -g gatsby-cli
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+# パッケージのインストール時にオプショナルな依存関係も含める
+RUN npm install --include=optional
 
 # Copy the rest of the application
 COPY . .
