@@ -28,16 +28,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
-      # - name: Install
-      #   run: |
-      #     npm install -g gatsby-cli
-      #     npm install --legacy-peer-deps
-      #     npm rebuild @parcel/watcher
-
-      - name: Install dependencies
-        run: make install
+      - name: Build image
+        run: make docker-build
 
       - name: Build Gatsby
         run: make build-gatsby
