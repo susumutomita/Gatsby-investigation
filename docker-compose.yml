@@ -7,6 +7,7 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
+      - ./src/public:/app/src/public  # 追加: ビルド成果物を共有
     tty: true
     environment:
       - NODE_ENV=development
