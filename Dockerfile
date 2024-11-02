@@ -21,10 +21,10 @@ RUN apt-get update && apt-get install -y \
 RUN npm install -g gatsby-cli
 
 # Copy package files
-COPY package*.json ./
+COPY src/package*.json ./src/
 
 # パッケージのインストール時にオプショナルな依存関係も含める
-RUN npm install --include=optional
+RUN npm install --include=optional --prefix ./src
 
 # Copy the rest of the application
 COPY . .
