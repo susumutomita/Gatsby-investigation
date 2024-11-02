@@ -19,9 +19,8 @@ build:
 .PHONY: build-gatsby
 build-gatsby:
 	$(ECHO) "Building in Docker container..."
-	$(DC_RUN) npm run build
+	$(DC_RUN) sh -c "cd src && npm run build"
 	$(ECHO) "Build completed successfully."
-
 
 # Build the Docker image
 .PHONY: docker-build
