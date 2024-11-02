@@ -51,6 +51,12 @@ docker-deploy:
 	$(DC_RUN) npm run deploy
 	$(ECHO) "Deployment completed successfully."
 
+
+# Deploy the site to GitHub Pages
+.PHONY: docker-logs
+docker-logs:
+	$(DOCKER_COMPOSE) logs -f gatsby
+
 .PHONY: connect-container
 connect-container:
 	$(DOCKER_COMPOSE) exec -it gatsby bash
@@ -59,5 +65,5 @@ connect-container:
 .PHONY: clean
 clean:
 	$(ECHO) "Cleaning up..."
-	$(DOCKER_COMPOSE) down
+	$(DOCKER_COMPOSE) down -v
 	$(ECHO) "Clean up completed successfully."
