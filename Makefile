@@ -33,7 +33,7 @@ docker-build:
 .PHONY: install
 install:
 	$(ECHO) "Installing dependencies..."
-	npm install
+	cd src && npm install
 	$(ECHO) "Installation completed successfully."
 
 # Run the development environment
@@ -50,19 +50,18 @@ docker-deploy:
 	$(DC_RUN) npm run deploy
 	$(ECHO) "Deployment completed successfully."
 
-
 # Deploy the site to GitHub Pages
 .PHONY: docker-logs
 docker-logs:
 	$(DOCKER_COMPOSE) logs -f gatsby
 
-.PHONY: connect-container
-connect-container:
+.PHONY: docker-connect
+docker-connect:
 	$(DOCKER_COMPOSE) exec -it gatsby bash
 
 # Clean up
-.PHONY: clean
-clean:
+.PHONY: docker-clean
+docker-clean:
 	$(ECHO) "Cleaning up..."
 	$(DOCKER_COMPOSE) down -v
 	$(ECHO) "Clean up completed successfully."
