@@ -18,8 +18,8 @@ build:
 # Build the Docker image
 .PHONY: build-gatsby
 build-gatsby:
-	$(ECHO) "Building in Docker container..."
-	$(DC_RUN) sh -c "cd src && npm run build"
+	$(ECHO) "Installing dependencies and building in Docker container..."
+	$(DC_RUN) sh -c "cd src && npm install && npm run build"
 	$(ECHO) "Build completed successfully."
 
 # Build the Docker image
@@ -40,7 +40,7 @@ install:
 .PHONY: docker-up
 docker-up:
 	$(ECHO) "Starting development environment..."
-	$(DOCKER_COMPOSE) up
+	$(DOCKER_COMPOSE) up --build
 	$(ECHO) "Development environment is up and running."
 
 # Deploy the site to GitHub Pages
