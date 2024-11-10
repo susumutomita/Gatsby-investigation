@@ -36,4 +36,5 @@ EXPOSE 8000
 ENV GATSBY_HOST=0.0.0.0
 
 # Start the development server
-CMD ["sh", "-c", "cd src && npm run develop"]
+WORKDIR /app/src
+CMD ["npm", "run", "develop"]
