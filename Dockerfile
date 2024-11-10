@@ -34,3 +34,6 @@ EXPOSE 8000
 
 # Set host to allow external connections
 ENV GATSBY_HOST=0.0.0.0
+
+# Start the development server
+CMD ["sh", "-c", "cd src && npm run develop"]
